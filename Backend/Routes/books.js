@@ -7,8 +7,8 @@ router.get("/", async (req, res) => {
   const books = await Book.find();
   res.status(200).send(books);
 });
-router.get("/:name", async (req, res) => {
-  const book = await Book.find({ name: req.params.name });
+router.get("/:id", async (req, res) => {
+  const book = await Book.find({ name: req.params._id });
   res.status(200).send(order);
 });
 router.post("/", async (req, res) => {

@@ -1,4 +1,4 @@
-import Timer from './Timer'
+import{Link} from "react-router-dom"
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -11,17 +11,14 @@ function FlashSale({images}) {
         slidesToScroll: 3,
         lazyLoad: true,
         autoplay: true,
-        autoplaySpeed: 4000,
-        
-        
-    
+        autoplaySpeed: 4000
     };
   return (
     <div className='text-center '>
         <div className="w-[99%] my-24 mx-auto " >
 		<Slider {...settings}>
 		{images.map((item,index) => (
-			<div key={index} className=" mx-4 h-[350px] w-[90%] rounded-xl p-4 border-[1px] border-solid border-[#ddd] shadow-lg shadow-[#888]">
+			<Link to={`/about/:${item._id}`} key={index} className=" mx-4 h-[350px] w-[90%] rounded-xl p-4 border-[1px] border-solid border-[#ddd] shadow-lg shadow-[#888]">
 			<img src={item.image} className="w-[90%] h-56 mx-4" alt={index} />
             <h2 className='font-bold mt-2'>{item.name}</h2>
             {item.tags.map((it,index)=>{
@@ -30,7 +27,7 @@ function FlashSale({images}) {
                     )
                 })} 
                 <span className='block font-semibold '>{item.price} $ </span>
-			</div>
+			</Link>
 		))}
 		</Slider>
 	</div>
