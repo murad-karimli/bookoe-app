@@ -39,13 +39,13 @@ prevArrow: <SamplePrevArrow />
 };
 return (
 	<>
-	<div className="w-[250px] mt-[7%]" >
+	<div className="w-[250px] mx-20  " >
 		<Slider {...settings}>
 		{images.map((item,index) => (
 			<div key={index} className="w-[250px] p-2">
 			<img src={item.image} className="w-full h-96" alt={index} />
-            <h3 className="text-center">{item.name}</h3>
-            <span className="mx-24 font-semibold">{item.price} $</span>
+            <h3 className="text-center font-bold">{item.name}</h3>
+            <span className="mx-20 font-semibold">{item.price} $</span>
 			</div>
 		))}
 		</Slider>

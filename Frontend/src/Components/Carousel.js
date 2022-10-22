@@ -16,10 +16,10 @@ autoplaySpeed: 4000,
 };
 return (
 	<>
-	<div className="w-[700px]" >
+	<div className="w-[700px] mx-12" >
 		<Slider {...settings}>
 		{images.map((item,index) => (
-			<div key={index} className="w-[200px] p-20">
+			<div key={index} className="w-[200px] ">
 			<img src={item.image} className="w-full h-96" alt={index} />
 			</div>
 		))}

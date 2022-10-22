@@ -24,30 +24,35 @@ function SampleNextArrow(props) {
       />
     );
   }
+  function cut(number,text){
+    return text.substring(0,number)+" ..."
+  }
 function SpecialOffers({images}) {
     const settings = {
         infinite: true,
         dots: false,
-        slidesToShow: 3,
+        slidesToShow: 4,
         slidesToScroll: 1,
         lazyLoad: true,
         autoplay: true,
     autoplaySpeed: 4000,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />
     };
   return (
    <section>
     <h2 className="text-3xl font-semibold text-center p-4">Special Offers</h2>
     <div className='flex justify-between '>
-    <div className="w-full h-[900px]" >
+    <div className="w-full h-[900px] m-2" >
 		<Slider {...settings}>
             {images.map((item,index) => (
-                <div key={index} className="w-[150px] rounded-xl  p-4 bg-[#ddd]  h-[700px]">
-                <img src={item.image} className="w-full h-96 rounded-xl" alt={index} />
-                <h4 className="font-semibold text-xl text-center">{item.name}</h4>
-                <span className="text-[#A020F0] font-semibold p-4">{item.tags} </span>
-                <p className="font-semibold mx-auto p-2">{item.content}</p>
+                <div key={index} className="w-[100px] rounded-xl mx-16 p-4 bg-[#ddd]  h-[500px]">
+                <img src={item.image} className="w-full h-72 rounded-xl" alt={index} />
+                <h4 className="font-semibold text-xl font-mono text-center">{item.name}</h4>
+                {item.tags.map((it,index)=>{
+                  return(
+                    <span key={index} className="text-[#A066F0] font-bold p-4">{it+"  "}</span>
+                    )
+                })} 
+                <p className="font-semibold mx-auto p-2">{cut(170,item.content)}</p>
                 </div>
             ))}
 		</Slider>
