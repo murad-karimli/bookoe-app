@@ -8,7 +8,7 @@ function SampleNextArrow(props) {
     return (
       <div
         className={className}
-        style={{ ...style, display: "block", background: "gray", }}
+        style={{ ...style, display: "block", background: "#111" }}
         onClick={onClick}
       />
     );
@@ -19,7 +19,7 @@ function SampleNextArrow(props) {
     return (
       <div
         className={className}
-        style={{ ...style, display: "block", background: "gray" }}
+        style={{ ...style, display: "block", background: "#111" }}
         onClick={onClick}
       />
     );
@@ -39,7 +39,7 @@ prevArrow: <SamplePrevArrow />
 };
 return (
 	<>
-	<div className="w-[250px] mx-20  " >
+	<div className="w-[350px] mx-20  " >
 		<Slider {...settings}>
 		{images.map((item,index) => (
 			<div key={index} className="w-[250px] p-2">

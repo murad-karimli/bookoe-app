@@ -18,11 +18,6 @@ function FlashSale({images}) {
     };
   return (
     <div className='text-center '>
-        <h1 className='font-bold text-4xl my-8'>Flash Sale</h1>
-        <p className='font-semibold text-xl my-8'>Kompaniyalar davam edir qağaş</p>
-        <div className='flex justify-center'>
-        <Timer initialHours={4} initialMinute={30} initialSecond={40}/>
-        </div>
         <div className="w-[99%] my-24 mx-auto " >
 		<Slider {...settings}>
 		{images.map((item,index) => (

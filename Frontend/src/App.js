@@ -6,11 +6,13 @@ import About from "./Components/About";
 import SpecialOffers from "./Components/SpecialOffers";
 import FlashSale from "./Components/FlashSale";
 import Footer from "./Components/Footer";
-
+import DetailsDescription from "./Pages/DetailsDescription";
+import Timer from "./Components/Timer";
+import { Routes, Route, Link } from "react-router-dom";
+import HomePage from "./Pages/HomePage";
 
 function App() {
   const[books,setBooks]=useState([])
-
   const fetchAll=async()=>{
     const data=await fetch("http://localhost:5000/api/v1/books");
     const json=await data.json();
@@ -21,17 +23,16 @@ function App() {
   fetchAll()
  },[])
   return (
-    <div>    
-     <Navbar/>
-     <div className="flex justify-between mt-12">
-     <Carousel images={books}/>
-     <BestSeller images={books}/>
-     </div>
-     <About/>
-     <SpecialOffers images={books}/>
 
-     <FlashSale images={books} />
+    <div>
+
+     <Navbar/>
+      <Routes>
+        <Route path="/" element={<HomePage books={books}/>}/>
+        <Route path="/about" element={<DetailsDescription/>}/>
+      </Routes>
      <Footer/>
+     <DetailsDescription images={books}/>
     </div>  
   )
 }
