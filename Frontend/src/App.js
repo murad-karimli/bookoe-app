@@ -4,6 +4,8 @@ import{useState,useEffect} from "react"
 import BestSeller from "./Components/BestSeller";
 import About from "./Components/About";
 import SpecialOffers from "./Components/SpecialOffers";
+import FlashSale from "./Components/FlashSale";
+import Footer from "./Components/Footer";
 
 
 function App() {
@@ -28,7 +30,8 @@ function App() {
      <About/>
      <SpecialOffers images={books}/>
 
-     
+     <FlashSale images={books} />
+     <Footer/>
     </div>  
   )
 }
