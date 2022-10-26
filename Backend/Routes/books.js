@@ -8,8 +8,8 @@ router.get("/", async (req, res) => {
   res.status(200).send(books);
 });
 router.get("/:id", async (req, res) => {
-  const book = await Book.find({ name: req.params._id });
-  res.status(200).send(order);
+  const book = await Book.find({ _id: req.params.id });
+  res.status(200).send(book);
 });
 router.post("/", async (req, res) => {
   const book = new Book(req.body);

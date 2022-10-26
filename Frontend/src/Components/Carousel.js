@@ -2,7 +2,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import React from 'react'
-
+import{Link}from "react-router-dom"
 const ImageSlider = ({images}) => {
 const settings = {
 	infinite: true,
@@ -19,9 +19,9 @@ return (
 	<div className="w-[700px] mx-12" >
 		<Slider {...settings}>
 		{images.map((item,index) => (
-			<div key={index} className="w-[200px] ">
+			<Link to={`/about/:${item._id}`} key={index} className="w-[200px] ">
 			<img src={item.image} className="w-full h-96" alt={index} />
-			</div>
+			</Link>
 		))}
 		</Slider>
 	</div>

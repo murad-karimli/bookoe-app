@@ -1,16 +1,20 @@
-import React,{useState} from 'react';
+import React,{useEffect, useState} from 'react';
 import About from '../Components/About';
 import FlashSale from '../Components/FlashSale';
 import map from "../img/maps.png"
 import {useParams} from "react-router-dom"
 function DetailsDescription({images}) {
-    const {id}=useParams()
     const [book,setBook]=useState([])
-    const fetchBook=async(id)=>{
-        const data=await fetch(`http://localhost:5000/api/v1/books/${id}`);
+    var {id}=useParams()
+    const fetchBook=async()=>{
+        const data=await fetch(`http://localhost:5000/api/v1/books/62dd5aef86452169b7d68022 `);
         const json=await data.json();
         setBook(json)
+        console.log(json)
     }
+    useEffect(()=>{
+        fetchBook(id)
+    },[id])
     const[count,setCount]=useState(0)
   return (
     <div>
